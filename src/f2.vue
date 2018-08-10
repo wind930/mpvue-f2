@@ -72,8 +72,8 @@ export default {
   },
   onReady() {
     if (!this.f2) {
-      console.warn('组件需绑定 opts 变量，例：<ff-canvas id="mychart-dom-bar" '
-        + 'canvas-id="mychart-bar" opts="{{ opts }}"></ff-canvas>');
+      console.warn('组件需绑定 f2 变量，例：<mpvue-f2 id="mychart-dom-bar" :onInit="onInit" '
+        + 'canvas-id="mychart-bar" :f2="f2"></mpvue-f2>');
       return;
     }
 
@@ -109,8 +109,8 @@ export default {
         }
         if (typeof callback === 'function') {
           this.chart = callback(canvas, res.width, res.height);
-        } else if (this.data.opts && this.data.opts.onInit) {
-          this.chart = this.data.opts.onInit(canvas, res.width, res.height);
+        } else if (this.onInit) {
+          this.chart = this.onInit(canvas, res.width, res.height);
         }
       }).exec();
     },
