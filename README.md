@@ -122,7 +122,7 @@ export default {
 
 本项目只展示了部分 demos，更全的见 [AntV F2](https://antv.alipay.com/zh-cn/f2/3.x/demo/index.html)。
 
-完整的例子请参见 [example](https://github.com/soonfy/mpvue-f2/tree/example) 分支。
+完整的例子请参见 [example](https://github.com/soonfy/mpvue-f2/tree/examples) 分支。
 
 ## 属性
 
