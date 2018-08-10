@@ -35,6 +35,10 @@ export default {
     }
   },
 
+  onLoad () {
+    this.status = true
+  },
+
   components: {
     mpvueEcharts
   },
@@ -226,9 +230,7 @@ export default {
         this.$refs.lazy.init()
       }, 0)
     }
-  },
-
-  created () {}
+  }
 }
 </script>
 
