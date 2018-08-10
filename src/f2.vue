@@ -100,10 +100,8 @@ export default {
 
       const canvas = new Renderer(this.ctx);
       this.canvas = canvas;
-      console.log(canvas)
-      console.log(this.f2)
 
-      const query = wx.createSelectorQuery().in(this);
+      const query = wx.createSelectorQuery();
       query.select(`#${canvasId}`).boundingClientRect((res) => {
         if (!res) {
           setTimeout(() => this.init(), 50);

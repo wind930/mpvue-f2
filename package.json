@@ -1,6 +1,6 @@
 {
   "name": "mpvue-f2",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "📈 适用于 Mpvue 的 f2 组件",
   "main": "src/f2.vue",
   "directories": {
