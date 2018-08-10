@@ -2,6 +2,12 @@
 
 > wx mini app examples
 
+## examples
+
+1. echarts
+
+2. f2
+
 ## Build Setup
 
 ``` bash
