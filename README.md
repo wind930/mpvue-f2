@@ -128,12 +128,10 @@ export default {
 
 | 名称          | 类型           | 默认值         | 描述           |
 | -------------|--------------- | ------------- | ------------- |
-| echarts      | Object         | null          | echarts 对象  |
+| f2           | Object         | null          | f2 对象        |
 | canvasId     | String         | ec-canvas     | canvasId      |
-| onInit       | Function       | null          | 初始化函数     |
+| onInit       | Function       | null          | 初始化函数      |
 | lazyLoad     | Boolean        | false         | 懒加载         |
-| disableTouch | Boolean        | false         | 禁用触摸事件   |
-| throttleTouch| Boolean        | false         | 节流触摸事件   |
 
 ## 微信版本要求
 
