@@ -1,0 +1,27 @@
+{
+  "name": "mpvue-f2",
+  "version": "1.0.3",
+  "description": "📈 适用于 Mpvue 的 f2 组件",
+  "main": "src/f2.vue",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soonfy/mpvue-f2.git"
+  },
+  "keywords": [
+    "mpvue",
+    "f2",
+    "wxapp"
+  ],
+  "author": "soonfy <soonfy@163.com> (https://github.com/soonfy)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soonfy/mpvue-f2/issues"
+  },
+  "homepage": "https://github.com/soonfy/mpvue-f2#readme"
+}
