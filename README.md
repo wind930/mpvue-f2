@@ -132,7 +132,7 @@ export default {
 | 名称          | 类型           | 默认值         | 描述           |
 | -------------|--------------- | ------------- | ------------- |
 | f2           | Object         | null          | f2 对象        |
-| canvasId     | String         | ec-canvas     | canvasId      |
+| canvasId     | String         | f2-canvas     | canvasId      |
 | onInit       | Function       | null          | 初始化函数      |
 | lazyLoad     | Boolean        | false         | 懒加载         |
 
