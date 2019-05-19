@@ -1,6 +1,6 @@
 {
   "name": "mpvue-f2",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "📈 适用于 Mpvue 的 f2 组件",
   "main": "src/f2.vue",
   "directories": {
@@ -11,17 +11,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/soonfy/mpvue-f2.git"
+    "url": "git+https://github.com/wind930/mpvue-f2.git"
   },
   "keywords": [
     "mpvue",
     "f2",
     "wxapp"
   ],
-  "author": "soonfy <soonfy@163.com> (https://github.com/soonfy)",
+  "author": "wind <mail@zhaiyonggang.com> (https://github.com/wind930)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/soonfy/mpvue-f2/issues"
+    "url": "https://github.com/wind930/mpvue-f2/issues"
   },
-  "homepage": "https://github.com/soonfy/mpvue-f2#readme"
+  "homepage": "https://github.com/wind930/mpvue-f2#readme"
 }
