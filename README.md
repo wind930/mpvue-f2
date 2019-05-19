@@ -1,6 +1,7 @@
 # 在微信小程序中使用 F2
 
 > 本项目是 F2 的 Mpvue 小程序版本。开发者可以通过熟悉的 F2 配置方式及 Vue 语法，快速开发图表，满足各种可视化需求。
+> 本项目在 soonfy/mpvue-f2 版本基础上增加了事件回调用于实时更新图表
 
 ## 扫码体验
 ![小程序码](./static/qrcode.jpg)
@@ -8,7 +9,7 @@
 ## 安装
 
 ``` bash
-npm i mpvue-f2
+npm i wind930/mpvue-f2
 ```
 
 ## 使用
@@ -16,7 +17,7 @@ npm i mpvue-f2
 ``` vue
 <template>
   <div class="echarts-wrap">
-    <mpvue-f2 :f2="f2" :onInit="onInit" canvasId="demo-canvas" />
+    <mpvue-f2 :f2="f2" type="chartTypeOrOthers" :onInit="onInit" canvasId="demo-canvas" />
   </div>
 </template>
 
@@ -26,8 +27,10 @@ const F2 = require('@antv/f2')
 
 let chart = null
 
-function initChart (canvas, width, height) {
-  const data = [{ 'year': 1997, 'type': 'United States', 'value': 4.9 }, { 'year': 1997, 'type': 'Florida', 'value': 4.8 }, { 'year': 1998, 'type': 'United States', 'value': 4.5 }, { 'year': 1998, 'type': 'Florida', 'value': 4.3 }, { 'year': 1999, 'type': 'United States', 'value': 4.2 }, { 'year': 1999, 'type': 'Florida', 'value': 3.9 }, { 'year': 2000, 'type': 'United States', 'value': 4 }, { 'year': 2000, 'type': 'Florida', 'value': 3.7 }, { 'year': 2001, 'type': 'United States', 'value': 4.7 }, { 'year': 2001, 'type': 'Florida', 'value': 4.7 }, { 'year': 2002, 'type': 'United States', 'value': 5.8 }, { 'year': 2002, 'type': 'Florida', 'value': 5.6 }, { 'year': 2003, 'type': 'United States', 'value': 6 }, { 'year': 2003, 'type': 'Florida', 'value': 5.2 }, { 'year': 2004, 'type': 'United States', 'value': 5.5 }, { 'year': 2004, 'type': 'Florida', 'value': 4.6 }, { 'year': 2005, 'type': 'United States', 'value': 5.1 }, { 'year': 2005, 'type': 'Florida', 'value': 3.7 }, { 'year': 2006, 'type': 'United States', 'value': 4.6 }, { 'year': 2006, 'type': 'Florida', 'value': 3.2 }, { 'year': 2007, 'type': 'United States', 'value': 4.6 }, { 'year': 2007, 'type': 'Florida', 'value': 4 }, { 'year': 2008, 'type': 'United States', 'value': 5.8 }, { 'year': 2008, 'type': 'Florida', 'value': 6.3 }, { 'year': 2009, 'type': 'United States', 'value': 9.3 }, { 'year': 2009, 'type': 'Florida', 'value': 10.4 }, { 'year': 2010, 'type': 'United States', 'value': 9.6 }, { 'year': 2010, 'type': 'Florida', 'value': 11.1 }, { 'year': 2011, 'type': 'United States', 'value': 8.9 }, { 'year': 2011, 'type': 'Florida', 'value': 10 }, { 'year': 2012, 'type': 'United States', 'value': 8.1 }, { 'year': 2012, 'type': 'Florida', 'value': 8.5 }, { 'year': 2013, 'type': 'United States', 'value': 7.4 }, { 'year': 2013, 'type': 'Florida', 'value': 7.2 }, { 'year': 2014, 'type': 'United States', 'value': 6.2 }, { 'year': 2014, 'type': 'Florida', 'value': 6.3 }, { 'year': 2015, 'type': 'United States', 'value': 5.3 }, { 'year': 2015, 'type': 'Florida', 'value': 5.4 }, { 'year': 2016, 'type': 'United States', 'value': 4.9 }, { 'year': 2016, 'type': 'Florida', 'value': 4.9 }, { 'year': 2017, 'type': 'United States', 'value': 4.4 }, { 'year': 2017, 'type': 'Florida', 'value': 4.3 }]
+function initChart (canvas, width, height, updateData) {
+
+  // 通过updateData入参可以更新图表数据
+  const data = updateData || [{ 'year': 1997, 'type': 'United States', 'value': 4.9 }, { 'year': 1997, 'type': 'Florida', 'value': 4.8 }, { 'year': 1998, 'type': 'United States', 'value': 4.5 }, { 'year': 1998, 'type': 'Florida', 'value': 4.3 }, { 'year': 1999, 'type': 'United States', 'value': 4.2 }, { 'year': 1999, 'type': 'Florida', 'value': 3.9 }, { 'year': 2000, 'type': 'United States', 'value': 4 }, { 'year': 2000, 'type': 'Florida', 'value': 3.7 }, { 'year': 2001, 'type': 'United States', 'value': 4.7 }, { 'year': 2001, 'type': 'Florida', 'value': 4.7 }, { 'year': 2002, 'type': 'United States', 'value': 5.8 }, { 'year': 2002, 'type': 'Florida', 'value': 5.6 }, { 'year': 2003, 'type': 'United States', 'value': 6 }, { 'year': 2003, 'type': 'Florida', 'value': 5.2 }, { 'year': 2004, 'type': 'United States', 'value': 5.5 }, { 'year': 2004, 'type': 'Florida', 'value': 4.6 }, { 'year': 2005, 'type': 'United States', 'value': 5.1 }, { 'year': 2005, 'type': 'Florida', 'value': 3.7 }, { 'year': 2006, 'type': 'United States', 'value': 4.6 }, { 'year': 2006, 'type': 'Florida', 'value': 3.2 }, { 'year': 2007, 'type': 'United States', 'value': 4.6 }, { 'year': 2007, 'type': 'Florida', 'value': 4 }, { 'year': 2008, 'type': 'United States', 'value': 5.8 }, { 'year': 2008, 'type': 'Florida', 'value': 6.3 }, { 'year': 2009, 'type': 'United States', 'value': 9.3 }, { 'year': 2009, 'type': 'Florida', 'value': 10.4 }, { 'year': 2010, 'type': 'United States', 'value': 9.6 }, { 'year': 2010, 'type': 'Florida', 'value': 11.1 }, { 'year': 2011, 'type': 'United States', 'value': 8.9 }, { 'year': 2011, 'type': 'Florida', 'value': 10 }, { 'year': 2012, 'type': 'United States', 'value': 8.1 }, { 'year': 2012, 'type': 'Florida', 'value': 8.5 }, { 'year': 2013, 'type': 'United States', 'value': 7.4 }, { 'year': 2013, 'type': 'Florida', 'value': 7.2 }, { 'year': 2014, 'type': 'United States', 'value': 6.2 }, { 'year': 2014, 'type': 'Florida', 'value': 6.3 }, { 'year': 2015, 'type': 'United States', 'value': 5.3 }, { 'year': 2015, 'type': 'Florida', 'value': 5.4 }, { 'year': 2016, 'type': 'United States', 'value': 4.9 }, { 'year': 2016, 'type': 'Florida', 'value': 4.9 }, { 'year': 2017, 'type': 'United States', 'value': 4.4 }, { 'year': 2017, 'type': 'Florida', 'value': 4.3 }]
 
   chart = new F2.Chart({
     el: canvas,
@@ -108,6 +111,15 @@ export default {
       f2: F2,
       onInit: initChart
     }
+  },
+  mounted(){
+
+    // 用于更新图表数据
+    let _data = [{x:0,y:0,...}]
+
+    // 通过向子组件分发消息来更新图表
+    this.$emit('update', {type:'chartType', data:_data})
+
   }
 }
 </script>

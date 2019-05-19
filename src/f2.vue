@@ -48,7 +48,17 @@ F2.Util.createEvent = function (event, chart) {
 };
 
 export default {
+  data : {
+    message : undefined
+  },
   props: {
+    type: {
+      required: true,
+      type: Object,
+      default() {
+        return null;
+      },
+    },
     f2: {
       required: true,
       type: Object,
@@ -76,6 +86,15 @@ export default {
         + 'canvas-id="mychart-bar" :f2="f2"></mpvue-f2>');
       return;
     }
+
+    // 通过update事件更新数据，重绘图表
+    let self = this
+    this.$parent.$on('update',function(msg){
+       if(msg.type == self.type){
+         self.message = msg.data
+         self.init()
+       }
+    })
 
     if (!this.lazyLoad) this.init();
   },
@@ -110,7 +129,7 @@ export default {
         if (typeof callback === 'function') {
           this.chart = callback(canvas, res.width, res.height);
         } else if (this.onInit) {
-          this.chart = this.onInit(canvas, res.width, res.height);
+          this.chart = this.onInit(canvas, res.width, res.height, self.message);
         }
       }).exec();
     },
