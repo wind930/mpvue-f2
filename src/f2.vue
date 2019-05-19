@@ -59,6 +59,13 @@ export default {
         return null;
       },
     },
+    page: {
+      required: true,
+      type: Object,
+      default() {
+        return null;
+      },
+    },
     f2: {
       required: true,
       type: Object,
@@ -90,7 +97,7 @@ export default {
     // 通过update事件更新数据，重绘图表
     let self = this
     this.$parent.$on('update',function(msg){
-       if(msg.type == self.type){
+       if(msg.type == self.type && msg.page == self.page){
          self.message = msg.data
          self.init()
        }
