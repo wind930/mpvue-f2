@@ -116,6 +116,7 @@ export default {
       }
 
       const { canvasId } = this;
+      this.ctx = undefined;
       this.ctx = wx.createCanvasContext(canvasId);
 
       const canvas = new Renderer(this.ctx);
