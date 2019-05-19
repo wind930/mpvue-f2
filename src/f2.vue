@@ -100,6 +100,7 @@ export default {
   },
   methods: {
     init() {
+      let self = this;
       const version = wx.version.version.split('.').map(n => parseInt(n, 10));
       const isValid = version[0] > 1 || (version[0] === 1 && version[1] > 9)
         || (version[0] === 1 && version[1] === 9 && version[2] >= 91);
